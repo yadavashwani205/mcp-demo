@@ -1,6 +1,7 @@
 # mcp-demo
 
-A simple FastMCP server that exposes an `add` tool for adding two numbers.
+A simple FastMCP server that exposes tools for adding two numbers and
+generating a random integer within a range.
 
 ## Run
 
@@ -19,5 +20,8 @@ python main.py
 The server listens on `0.0.0.0:8000` and serves the MCP endpoint at
 `http://localhost:8000/mcp`.
 
-The server exposes `add(a, b)`, which returns the sum of its two numeric
-arguments.
+The server exposes:
+
+- `add(a, b)`: returns the sum of its two numeric arguments.
+- `generate_random_number(lower, upper)`: returns a random integer in the
+  inclusive range from `lower` to `upper`.
