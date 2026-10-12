@@ -1,7 +1,6 @@
 # mcp-demo
 
-A simple FastMCP server that exposes tools for adding two numbers and
-generating a random integer within a range.
+A FastMCP server with expense-tracking and number utility tools.
 
 ## Run
 
@@ -25,3 +24,11 @@ The server exposes:
 - `add(a, b)`: returns the sum of its two numeric arguments.
 - `generate_random_number(lower, upper)`: returns a random integer in the
   inclusive range from `lower` to `upper`.
+- `add_expense(date, amount, category, note="")`: records an expense using an
+  ISO 8601 date (`YYYY-MM-DD`) and one of the categories in `categories.json`.
+  The note defaults to an empty string.
+- `list_expenses()`: returns all recorded expenses ordered by date, then ID.
+
+The expense tools create and use `expense.db` next to `main.py`. Its `expenses`
+table has an auto-incrementing integer primary key, required date, amount, and
+category columns, and a required note column that defaults to an empty string.
