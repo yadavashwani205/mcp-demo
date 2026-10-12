@@ -32,3 +32,11 @@ The server exposes:
 The expense tools create and use `expense.db` next to `main.py`. Its `expenses`
 table has an auto-incrementing integer primary key, required date, amount, and
 category columns, and a required note column that defaults to an empty string.
+If the server's project directory is read-only, set `EXPENSE_DB_PATH` to a
+writable database file path before starting the server, for example:
+
+```bash
+EXPENSE_DB_PATH="$HOME/.local/share/mcp-demo/expense.db" uv run fastmcp dev inspector main.py
+```
+
+The server creates the parent directory when needed.
