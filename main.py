@@ -11,7 +11,7 @@ from fastmcp import FastMCP
 
 BASE_DIR = Path(__file__).resolve().parent
 DATABASE_PATH = Path(
-    os.environ.get("EXPENSE_DB_PATH", str(BASE_DIR / "expense.db"))
+    os.environ.get("EXPENSE_DB_PATH", "/tmp/mcp-demo/expense.db")
 ).expanduser()
 CATEGORIES_PATH = BASE_DIR / "categories.json"
 

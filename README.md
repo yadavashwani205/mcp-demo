@@ -29,14 +29,16 @@ The server exposes:
   The note defaults to an empty string.
 - `list_expenses()`: returns all recorded expenses ordered by date, then ID.
 
-The expense tools create and use `expense.db` next to `main.py`. Its `expenses`
+The expense tools create and use `/tmp/mcp-demo/expense.db` by default, which
+works on hosted servers where `/tmp` is the writable location. Its `expenses`
 table has an auto-incrementing integer primary key, required date, amount, and
 category columns, and a required note column that defaults to an empty string.
-If the server's project directory is read-only, set `EXPENSE_DB_PATH` to a
-writable database file path before starting the server, for example:
+To use another writable database file, set `EXPENSE_DB_PATH` before starting
+the server, for example:
 
 ```bash
-EXPENSE_DB_PATH="$HOME/.local/share/mcp-demo/expense.db" uv run fastmcp dev inspector main.py
+EXPENSE_DB_PATH="/tmp/my-expenses.db" uv run fastmcp dev inspector main.py
 ```
 
-The server creates the parent directory when needed.
+The server creates the parent directory when needed. Data in `/tmp` may be
+removed when the hosted environment restarts.
